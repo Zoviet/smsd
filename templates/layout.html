@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/public/css/font-awesome.min.css" /> 
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="/public/css/bulma-dracula.css" /> 
+    <link rel="stylesheet" href="/public/css/daterangepicker.css" /> 
+    <link rel="stylesheet" type="text/css" href="/public/css/style.css">
+</head>
+
+<body>
+	<header class="hero">
+		<div class="hero-head">
+			<nav class="navbar has-shadow" role="navigation" aria-label="main navigation">						
+				<div class="navbar-brand">
+					<a href="/" class="navbar-item is--brand">
+						<figure>
+							<img src="/public/img/mobile_icon.png">
+						</figure> 
+					</a>
+					<a role="button" class="navbar-burger burger has-text-white" aria-label="menu" aria-expanded="false" data-target="navMenu">
+						<span aria-hidden="true"></span>
+						<span aria-hidden="true"></span>
+						<span aria-hidden="true"></span>
+					</a>
+				</div>
+			</nav>
+		</div>
+	</header>
+	<div class="wrapper">
+		<div class="columns">
+			<aside class="column is-2 aside" style="min-height:1200px!important">
+				<nav class="menu">
+					<p class="menu-label">
+                        Messages
+                    </p>
+                    <ul class="menu-list">
+                        <li><a href="/inbox">Inbox</a></li>
+                        <li><a href="/sent">Sent</a></li>
+                        <li><a href="/badbox">Error</a></li>
+                        <li><a href="/outbox">Queue</a></li> 
+                        <li><a class="has-text-success" href="/send">Send SMS</a></li>	           
+                    </ul>                 
+					<p class="menu-label">
+                        Modems/Phones
+                    </p>
+                     <ul class="menu-list">          
+                        <li><a href="/phones">Active</a></li>                
+                    </ul>             			
+				</nav>
+			</aside>
+			<main class="column main">
+			    <div class="container">
+	                {*view*}        
+			    </div>
+			</main>
+		</div>
+	</div>	
+	<script type="text/javascript" src="/public/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/public/js/moment.min.js"></script>
+	<script type="text/javascript" src="/public/js/daterangepicker.js"></script>
+    <script async type="text/javascript" src="/public/js/bulma.js"></script>
+    <script type="text/javascript" src="/public/js/admin.js"></script>
+</body>
+
+</html>

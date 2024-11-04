@@ -1,0 +1,78 @@
+<section>
+	<h1 class="title">{{title}}</h1>
+	
+	{% if message then %}
+	<p class="notification is-primary">
+       {{message}}
+    </p>
+    {% end %}
+    
+    {% if phones then %}
+	<div class="columns">
+		<div class="column is-6 is-12-mobile">
+			<form method="POST">
+				<div class="field">		
+					<label class="label">Phone ID</label>
+					<div class="control">	
+						<div class="select">
+							<select name="SenderID">
+								{% for _,phone in pairs(phones) do %}
+								<option value="{{phone.ID}}">{{phone.ID}}</option>   
+								{% end %}
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="field">
+					<label class="label">Destination Number</label>
+					<div class="control">
+						<input class="input" name="DestinationNumber" type="text" value=""/>
+					</div>
+				</div>
+				<div class="field">
+					<label class="label">Message Text</label>
+					<div class="control">
+						<textarea rows="2" name="TextDecoded"></textarea>
+					</div>
+				</div>
+				<div class="field">
+					<label class="label">Sending Time</label>
+					<div class="control">
+						<input class="input datetimes" name="SendingDateTime" type="text" value=""/>
+					</div>
+				</div>	
+				<div class="field">
+					<label class="label">SendingTimeOut</label>
+					<div class="control">
+						<input class="input" name="SendingTimeOut" type="text" value=""/>
+					</div>
+				</div>				
+				<div class="field is-grouped">
+					<div class="control">
+						<div class="select">
+							<select name="Priority">
+								<option value="0">Low priority</option>
+								<option value="1">Normal priority</option>
+								<option value="2">High priority</option>		
+							</select>
+						</div>
+					</div>
+					<div class="control">
+						<div class="select">
+							<select name="Retries">
+								<option value="0">No retry if falls</option>
+								<option value="1">Retry once</option>
+								<option value="2">Retry twice</option>	
+								<option value="3">Retry 3 times</option>	
+							</select>
+						</div>
+					</div>
+					<div class="control">
+						<button class="button is-primary" name="submit" type="submit">Send</button>	
+					</div>
+				</div>
+			</form>	
+		</div>
+	</div>
+	{% end %}
+</section>

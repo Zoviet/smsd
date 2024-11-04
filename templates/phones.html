@@ -1,0 +1,51 @@
+<h1 class="title">{{title}}</h1>
+
+{% if phones then %}
+
+<section>
+	<table class="table is-fullwidth is-bordered is-striped is-fullwidth">
+		<thead class="has-background-black">
+			<tr>
+				<th>ID</td>
+				<th>Signal</td>
+				<th>IMEI</td>
+				<th>Send?</td>
+				<th>Receive?</td>
+				<th>Sent</td>
+				<th>Received</td>
+				<th>Updated</td>
+			</tr>
+		</thead>
+		<tbody>
+			{% for _, phone in ipairs(phones) do %}
+			<tr>
+				<td>{{phone.ID}}</td>
+				<td>{{phone.Signal}}</td>
+				<td>{{phone.IMEI}}</td>
+				<td>{{phone.Send}}</td>
+				<td>{{phone.Receive}}</td>
+				<td>{{phone.Sent}}</td>
+				<td>{{phone.Received}}</td>
+				<td>{{phone.updated}}</td>
+			</tr>
+			{% end %}
+		</tbody>
+	</table>
+</section>
+
+<section class="section">
+	<nav class="pagination" role="navigation" aria-label="pagination">
+		 <ul class="pagination-list">
+			<li>
+				<a href="/inbox" class="pagination-link has-text-white" aria-label="Page 1" aria-current="page">1</a>
+			</li>
+			{% for i = 200, count, 200 do p = i/200+1 %}
+			<li>
+				<a href="/inbox?offset={{i}}" class="pagination-link has-text-white" aria-label="Page {{p}}" aria-current="page">{{p}}</a>
+			</li>
+			{% end %}		
+	  </ul>
+	</nav>
+</section>
+
+{% end %}

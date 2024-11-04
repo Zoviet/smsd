@@ -1,0 +1,47 @@
+<h1 class="title">{{title}}</h1>
+
+{% if messages then %}
+
+<section>
+	<table class="table is-fullwidth is-bordered is-striped is-fullwidth">
+		<thead class="has-background-black">
+			<tr>
+				<th>Status</td>
+				<th>Priority</td>
+				<th>From</td>
+				<th>To</td>
+				<th width="40%">Text</td>
+				<th>Sending Time</td>
+			</tr>
+		</thead>
+		<tbody>
+			{% for _, message in ipairs(messages) do %}
+			<tr>
+				<td>{{message.Status}}</td>
+				<td>{{message.Priority}}</td>
+				<td>{{message.SenderID}}</td>
+				<td>{{message.DestinationNumber}}</td>
+				<td>{{message.TextDecoded}}</td>
+				<td>{{message.date}}</td>
+			</tr>
+			{% end %}
+		</tbody>
+	</table>
+</section>
+
+<section class="section">
+	<nav class="pagination" role="navigation" aria-label="pagination">
+		 <ul class="pagination-list">
+			<li>
+				<a href="/inbox" class="pagination-link has-text-white" aria-label="Page 1" aria-current="page">1</a>
+			</li>
+			{% for i = 200, count, 200 do p = i/200+1 %}
+			<li>
+				<a href="/inbox?offset={{i}}" class="pagination-link has-text-white" aria-label="Page {{p}}" aria-current="page">{{p}}</a>
+			</li>
+			{% end %}		
+	  </ul>
+	</nav>
+</section>
+
+{% end %}

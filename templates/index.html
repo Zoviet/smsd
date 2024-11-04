@@ -1,0 +1,29 @@
+<section>
+	<h1 class="title">{{title}}</h1>
+	<div class="columns is-multiline has-text-centered has-text-black">		
+	{% if phones then %}				
+		{% for _, phone in pairs(phones) do %}
+		<div class="column is-half">										
+			<article class="box notification is-primary">
+				<div class="heading">IMEI: {{phone.IMEI}}</div>
+					<div class="title">{{phone.ID}}</div>
+					<div class="level">
+						<div class="level-item">
+							<div class="">
+								<div class="heading">Sent:</div>
+								<div class="title is-5">{{phone.Sent}}</div>
+							</div>
+						</div>
+						<div class="level-item">
+							<div class="">
+								<div class="heading">Received:</div>
+								<div class="title is-5">{{phone.Received}}</div>
+							</div>
+						</div>				
+					</div>
+			</article>
+		</div>	 
+		{% end %}	     
+	{% end %}
+	</div>
+</section>
