@@ -9,6 +9,12 @@ function _M.get(limit,offset)
 	return db.results(cur)
 end
 
+function _M.info()
+	local cur 
+	cur = db.cursor("SELECT ID,IMEI,Sent,Received FROM phones ORDER BY InsertIntoDB")
+	return db.results(cur)
+end
+
 function _M.getIds()
 	local cur 
 	cur = db.cursor("SELECT ID FROM phones WHERE Send='yes' ORDER BY InsertIntoDB DESC")

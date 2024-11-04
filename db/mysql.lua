@@ -2,7 +2,7 @@ local _M = {}
 local luasql = require "luasql.mysql"
 local db = "smsd"
 local db_user = "smsd"
-local db_password = ""	
+local db_password = "far546"	
 local env = assert(luasql.mysql())
 local con = assert(env:connect(db,db_user,db_password))
 
